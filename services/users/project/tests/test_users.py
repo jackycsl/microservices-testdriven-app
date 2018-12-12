@@ -28,12 +28,12 @@ class TestUserService(BaseTestCase):
         """Ensure new user can be added to the database"""
         with self.client:
             response = self.client.post(
-            '/users',
-            data=json.dumps({
-                'username': 'jacky',
-                'email': 'jacky@demo.com'
-            }),
-            content_type='application/json',
+                '/users',
+                data=json.dumps({
+                    'username': 'jacky',
+                    'email': 'jacky@demo.com'
+                }),
+                content_type='application/json',
             )
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 201)
@@ -54,7 +54,8 @@ class TestUserService(BaseTestCase):
             self.assertIn('fail', data['status'])
 
     def test_add_user_invalid_json_keys(self):
-        """Ensure error is thrown if the JSON object does not have a username"""
+        """Ensure error is thrown if the JSON object
+        does not have a username"""
         with self.client:
             response = self.client.post(
                 '/users',
@@ -120,7 +121,6 @@ class TestUserService(BaseTestCase):
             self.assertEqual(response.status_code, 404)
             self.assertIn('User does not exist', data['message'])
             self.assertIn('fail', data['status'])
-
 
     def test_all_users(self):
         """Ensure get all users behaves correctly"""

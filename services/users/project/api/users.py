@@ -57,7 +57,7 @@ def get_single_user(user_id):
         else:
             response_object = {
                 'status': 'success',
-                'data' : {
+                'data': {
                     'id': user.id,
                     'username': user.username,
                     'email': user.email,
