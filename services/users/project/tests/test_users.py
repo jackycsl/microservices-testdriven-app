@@ -2,8 +2,6 @@ import json
 import unittest
 
 from project.tests.base import BaseTestCase
-from project import db
-from project.api.models import User
 from project.tests.utils import add_user
 
 
@@ -161,7 +159,8 @@ class TestUserService(BaseTestCase):
         with self.client:
             response = self.client.post(
                 '/',
-                data=dict(username='jacky', email='jacky@demo.com', password='greaterthaneight'),
+                data=dict(username='jacky', email='jacky@demo.com',
+                          password='greaterthaneight'),
                 follow_redirects=True
             )
             self.assertEqual(response.status_code, 200)
@@ -170,7 +169,8 @@ class TestUserService(BaseTestCase):
             self.assertIn(b'jacky', response.data)
 
     def test_add_user_invalid_json_keys_no_password(self):
-        """Ensure error is thrown if the JSON object does not have a password key"""
+        """Ensure error is thrown if the JSON object
+        does not have a password key"""
         with self.client:
             response = self.client.post(
                 '/users',
