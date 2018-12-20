@@ -87,7 +87,6 @@ def logout_user(resp):
 @authenticate
 def get_user_status(resp):
     user = User.query.filter_by(id=resp).first()
-    auth_header = request.headers.get('Authorization')
     response_object = {
         'status': 'success',
         'message': 'Success.',

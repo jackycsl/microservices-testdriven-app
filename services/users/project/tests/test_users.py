@@ -278,7 +278,7 @@ class TestUserService(BaseTestCase):
             self.assertEqual(response.status_code, 401)
 
     def test_add_user_not_admin(self):
-        user = add_user('justatest', 'test@test.com', 'test')
+        add_user('justatest', 'test@test.com', 'test')
         with self.client:
             resp_login = self.client.post(
                 '/auth/login',
