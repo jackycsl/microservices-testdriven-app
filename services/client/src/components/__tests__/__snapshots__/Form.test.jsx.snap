@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Form renders a snapshot properly 1`] = `[Function]`;
+
+exports[`Register Form renders a snapshot properly 1`] = `[Function]`;
