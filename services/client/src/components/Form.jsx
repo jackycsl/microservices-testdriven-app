@@ -88,7 +88,7 @@ class Form extends Component {
           <input
             name="password"
             className="input is-medium"
-            type="text"
+            type="password"
             placeholder="Enter a password"
             required
             value={this.state.formData.password}
